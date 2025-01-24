@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container-parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+      }
+      .container-parent img {
+        width: 100%;
+      }
+      .leftImg {
+        width: 50%;
+      }
+      .righSlider {
+        width: 50%;
+      }
+
+      @media (max-width: 767px) {
+        .container-parent {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-parent">
+      <div class="leftImg">
+        <div>
+          <img src="img/1.png" alt="" />
+        </div>
+      </div>
+      <div class="rightSlider">
+        <div>
+          <span><img src="./img/2.png" alt="" /></span>
+          <span><img src="./img/3.png" alt="" /></span>
+          <span><img src="./img/4.png" alt="" /></span>
+          <span><img src="./img/5.png" alt="" /></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
