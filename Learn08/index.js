@@ -8,4 +8,6 @@ console.log(a);
 
 var a = 20;
 
-
+const fruits = ["Apple", "Banana", "Cherry"];
+let [x, y] = fruits;
+console.log(x);
