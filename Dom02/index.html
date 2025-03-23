@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div p:nth-child(4):hover {
+        color: blue;
+        transform: rotate(20deg);
+        transition: all 700ms;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- <p>Hello London</p>
+      <p id="message">Hello California</p>
+      <p>Hello California</p>
+      <p>Hello California Third</p>
+      <p>Hello California</p>
+      <p>Hello California</p> -->
+      <input type="radio" name="language" value="JS" />
+      <input type="radio" name="language" value="Java" />
+    </div>
+  </body>
+  <script>
+    /* const fourthPara = document.querySelectorAll("div p")[3];
+    fourthPara.style.color = "red";
+    fourthPara.addEventListener("mouseenter", () => {
+      fourthPara.style.backgroundColor = "yellow"; // Change background on hover
+      fourthPara.style.color = "black"; // Change text color on hover
+    });
+    fourthPara.addEventListener("mouseleave", () => {
+      fourthPara.style.backgroundColor = ""; // Change background on hover
+      fourthPara.style.color = ""; // Change text color on hover
+    }); */
+    // const msg = document.getElementById("message");
+    // console.log(msg);
+    const btn = document.getElementsByName("language");
+    console.log(btn);
+  </script>
+</html>
