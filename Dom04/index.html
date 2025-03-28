@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Image Slider</title>
+  </head>
+  <body>
+    <h2>Simple Image Slider</h2>
+
+    <div id="slider">
+      <img
+        id="slider-image"
+        src="https://via.placeholder.com/400x200?text=Image+1"
+        alt="Slider Image"
+        width="400"
+      />
+    </div>
+
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+
+    <script>
+      // Image URLs array
+      const images = [
+        "https://placehold.co/600x400?text=Image+1",
+        "https://placehold.co/600x400?text=Image+2",
+        "https://placehold.co/600x400?text=Image+3",
+        "https://placehold.co/600x400?text=Image+4",
+      ];
+
+      let currentIndex = 0; // Track current image index
+      const sliderImage = document.getElementById("slider-image");
+      const prevButton = document.getElementById("prev");
+      const nextButton = document.getElementById("next");
+
+      // Function to update image
+      function updateImage() {
+        sliderImage.src = images[currentIndex];
+      }
+
+      // Previous button click event
+      prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back if at first image
+        updateImage();
+      });
+
+      // Next button click event
+      nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % images.length; // Loop back if at last image
+        updateImage();
+      });
+    </script>
+  </body>
+</html>
