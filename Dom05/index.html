@@ -4,6 +4,102 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: pink;
+      }
+      .container {
+        max-width: 700px;
+        margin: auto;
+      }
+      .accordion {
+        cursor: pointer;
+        margin: 10px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 6px;
+      }
+      .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .icon {
+        margin-right: 20px;
+        transition: transform 0.3s;
+      }
+      .icon.active {
+        transform: rotate(-180deg);
+      }
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+      .answer.active {
+        max-height: 200px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <h2>FAQ's</h2>
+      <!-- accordion card start  -->
+      <div class="accordion">
+        <div class="question">
+          <h4>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita,
+            voluptas.
+          </h4>
+          <i class="icon fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            voluptates voluptatibus quia magnam nostrum! Voluptate mollitia esse
+            sunt, provident sint ipsa, officiis ut quae facere dolore dolorum
+            deleniti, minus similique.
+          </p>
+        </div>
+      </div>
+      <!-- accodrion card end  -->
+      <!-- accordion card start  -->
+      <div class="accordion">
+        <div class="question">
+          <h4>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita,
+            voluptas.
+          </h4>
+          <i class="icon fa-solid fa-caret-down"></i>
+        </div>
+        <div class="answer">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            voluptates voluptatibus quia magnam nostrum! Voluptate mollitia esse
+            sunt, provident sint ipsa, officiis ut quae facere dolore dolorum
+            deleniti, minus similique.
+          </p>
+        </div>
+      </div>
+      <!-- accodrion card end  -->
+    </div>
+    <script>
+      const accodrion = document.querySelectorAll(".accordion");
+      accodrion.forEach((accodrion) => {
+        const icon = accodrion.querySelector(".icon");
+        const answer = accodrion.querySelector(".answer");
+        accodrion.addEventListener("click", () => {
+          icon.classList.toggle("active");
+          answer.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
 </html>
