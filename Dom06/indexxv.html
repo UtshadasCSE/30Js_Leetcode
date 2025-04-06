@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Typewriter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #111;
+        color: #fff;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 1px;
+        background: #fff;
+        animation: blink 0.7s steps(1) infinite;
+        margin-left: 2px;
+      }
+
+      @keyframes blink {
+        50% {
+          background: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="typewriter"></div>
+    <div class="cursor"></div>
+
+    <script>
+      const words = ["Expert", "Specialist"];
+      let wordIndex = 0;
+      let charIndex = 0;
+      const speed = 100;
+      const delayBetweenWords = 2000;
+      const typewriterEl = document.getElementById("typewriter");
+
+      function type() {
+        if (charIndex < words[wordIndex].length) {
+          typewriterEl.textContent += words[wordIndex].charAt(charIndex);
+          charIndex++;
+          setTimeout(type, speed);
+        } else {
+          setTimeout(erase, delayBetweenWords);
+        }
+      }
+
+      function erase() {
+        if (charIndex > 0) {
+          typewriterEl.textContent = words[wordIndex].substring(
+            0,
+            charIndex - 1
+          );
+          charIndex--;
+          setTimeout(erase, speed);
+        } else {
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(type, 500);
+        }
+      }
+
+      // Start typing effect
+      type();
+    </script>
+  </body>
+</html>
