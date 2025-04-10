@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Before After Example</title>
+    <style>
+      .testimonial {
+        font-size: 20px;
+        font-style: italic;
+        position: relative;
+        padding: 20px;
+      }
+      .testimonial::before {
+        content: "“";
+        font-size: 36px;
+        position: absolute;
+        left: -10px;
+        top: -4px;
+      }
+      .testimonial::after {
+        content: "”";
+        font-size: 36px;
+        position: absolute;
+        right: 0px;
+        bottom: -4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testimonial">This product changed my life!</div>
+  </body>
+</html>

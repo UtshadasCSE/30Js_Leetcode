@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Box Icon CDN  -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+    #open_madal_btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .modal_conatiner {
+      width: 300px;
+      height: 300px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      /* display: flex; */
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .modal_header {
+      padding: 10px 20px;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal_header .icon_x {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      background-color: aqua;
+      border-radius: 6px;
+    }
+    .modal_body {
+      padding: 20px;
+      text-align: center;
+    }
+    .modal_footer {
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 0 0 10px 10px;
+    }
+    .modal_footer button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+  <body>
+    <button id="open_madal_btn">Open Modal</button>
+    <div class="modal_conatiner">
+      <div class="modal_header">
+        <h2>Modal Header</h2>
+        <box-icon class="icon_x" name="x"></box-icon>
+      </div>
+      <div class="modal_body">
+        <p>
+          This is the modal body content. Lorem ipsum dolor sit, amet
+          consectetur adipisicing elit. Libero, veniam ipsam. Necessitatibus vel
+          ab explicabo adipisci temporibus, dolor dolore non!
+        </p>
+      </div>
+      <div class="modal_footer">
+        <button id="modal_close_btn">Cancel</button>
+        <button id="modal_ok_btn">OK</button>
+      </div>
+    </div>
+    <script>
+      const openBtn = document.getElementById("open_madal_btn");
+      const closeBtn = document.querySelector(".icon_x");
+      //   open Modal
+      openBtn.addEventListener("click", () => {
+        const modal = document.querySelector(".modal_conatiner");
+        modal.style.display = "flex"; // Show modal
+        openBtn.style.display = "none"; // Hide open button
+      });
+      //   close modal by icon
+      closeBtn.addEventListener("click", () => {
+        const modal = document.querySelector(".modal_conatiner");
+        modal.style.display = "none"; // Hide modal
+        openBtn.style.display = "block"; // Show open button
+      });
+      window.addEventListener("click", (e) => {
+        const modal = document.querySelector(".modal_conatiner");
+        if (e.target === modal) {
+          modal.style.display = "none"; // Hide modal
+          openBtn.style.display = "block"; // Show open button
+        }
+      });
+    </script>
+  </body>
+</html>
