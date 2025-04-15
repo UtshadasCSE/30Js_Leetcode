@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cozy Home Furniture | Custom Furniture Made in USA</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        --primary-color: #5d4a3d;
+        --primary-light: #8a7261;
+        --primary-dark: #3e3229;
+        --secondary-color: #e0d4c1;
+        --secondary-light: #f0e9df;
+        --accent-color: #a38f77;
+        --text-color: #333333;
+        --text-light: #666666;
+        --light-bg: #f9f8f6;
+        --white: #ffffff;
+        --cozyhome-blue: #202837;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        --transition: all 0.3s ease;
+        --radius: 8px;
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        position: relative;
+      }
+
+      h3 {
+        font-size: clamp(1.5rem, 3vw, 1.8rem);
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      a:hover {
+        color: var(--primary-light);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-block;
+        padding: 0.875rem 1.75rem;
+        border-radius: var(--radius);
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 1rem;
+        line-height: 1.5;
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: var(--white);
+        border-color: var(--primary-color);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        color: var(--white);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-secondary {
+        background-color: var(--secondary-color);
+        color: var(--primary-dark);
+        border-color: var(--secondary-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--secondary-light);
+        border-color: var(--secondary-light);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
+        padding: 1rem 0;
+        transition: var(--transition);
+      }
+
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+      }
+
+      .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      /* Hero Section */
+      .hero-banner {
+        position: relative;
+        height: 100vh;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 4rem;
+      }
+
+      .hero-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+
+      .hero-image-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.3)
+        );
+      }
+
+      .hero-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-content {
+        color: var(--white);
+        max-width: 800px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-title {
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-title span {
+        display: block;
+        color: var(--secondary-color);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.25rem, 2vw, 1.5rem);
+        margin-bottom: 2rem;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+      }
+
+      .section-header h2 {
+        margin-bottom: 1rem;
+      }
+
+      .section-header h2 span {
+        color: var(--primary-color);
+      }
+
+      .section-subheading {
+        font-size: 1.25rem;
+        color: var(--text-light);
+      }
+
+      /* Features Section */
+      .features-section {
+        background-color: var(--white);
+        position: relative;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        border-radius: var(--radius);
+        padding: 2.5rem 2rem;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .feature-icon {
+        margin-bottom: 1.5rem;
+        color: var(--primary-color);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--secondary-light);
+      }
+
+      .feature-card h3 {
+        margin-bottom: 1rem;
+        color: var(--primary-dark);
+      }
+
+      /* Gallery Section */
+      .gallery-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .gallery-container {
+        position: relative;
+        overflow: hidden;
+        margin: 0 -1rem;
+      }
+
+      .gallery {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item {
+        flex: 0 0 calc(33.333% - 2rem);
+        margin: 0 1rem;
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        box-shadow: var(--shadow-md);
+        height: 400px;
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: var(--white);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover .gallery-caption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gallery-caption h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+      }
+
+      .gallery-controls {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 10;
+        padding: 0 1rem;
+        pointer-events: none;
+      }
+
+      .gallery-nav {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.9);
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        pointer-events: auto;
+        color: var(--primary-color);
+      }
+
+      .gallery-nav:hover {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background-color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonial-slider {
+        position: relative;
+        height: 300px;
+      }
+
+      .testimonial-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      .testimonial-slide.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .testimonial-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .quote-icon {
+        margin-bottom: 1.5rem;
+        color: var(--secondary-color);
+      }
+
+      .testimonial-quote {
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--text-color);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .author-name {
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .author-location {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .testimonial-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: var(--secondary-light);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .dot.active {
+        background-color: var(--primary-color);
+        transform: scale(1.2);
+      }
+
+      /* CTA Section */
+      .cta {
+        background-color: var(--cozyhome-blue);
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://www.cozyhomefurniture.com/cdn/shop/files/5a5a2ccc-7470-4fee-9aa3-8e95bb923fcd_1390x1392.jpg?v=1734733526")
+          center/cover no-repeat;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .cta h2 {
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .cta .btn-primary {
+        background-color: var(--white);
+        color: var(--cozyhome-blue);
+        border-color: var(--white);
+      }
+
+      .cta .btn-primary:hover {
+        background-color: transparent;
+        color: var(--white);
+      }
+
+      .cta .btn-outline {
+        color: var(--white);
+        border-color: var(--white);
+      }
+
+      .cta .btn-outline:hover {
+        background-color: var(--white);
+        color: var(--cozyhome-blue);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--primary-dark);
+        color: var(--white);
+        padding: 5rem 0 2rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h4 {
+        color: var(--white);
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+      }
+
+      .footer-column h4::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--secondary-color);
+      }
+
+      .footer-logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 1rem;
+      }
+
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        padding-left: 5px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        transition: var(--transition);
+      }
+
+      .social-icon:hover {
+        background-color: var(--secondary-color);
+        color: var(--primary-dark);
+        transform: translateY(-3px);
+      }
+
+      address p {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-bottom p {
+        margin-bottom: 0;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+      }
+
+      .footer-legal {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+
+      .footer-legal a {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+      }
+
+      .footer-legal a:hover {
+        color: var(--white);
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 1200px) {
+        .gallery-item {
+          flex: 0 0 calc(50% - 2rem);
+        }
+      }
+
+      @media (max-width: 992px) {
+        section {
+          padding: 4rem 0;
+        }
+
+        .hero-banner {
+          height: 80vh;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          flex-direction: column;
+          background-color: var(--white);
+          width: 100%;
+          text-align: center;
+          transition: 0.3s;
+          box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+          padding: 2rem 0;
+          gap: 1.5rem;
+        }
+
+        .nav-menu.active {
+          left: 0;
+        }
+
+        .gallery-item {
+          flex: 0 0 calc(100% - 2rem);
+        }
+
+        .feature-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-legal {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.25rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .hero-buttons .btn {
+          width: 100%;
+        }
+
+        .cta-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-buttons .btn {
+          width: 100%;
+        }
+
+        .testimonial-quote {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <div class="logo">CōzyHome</div>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#" class="nav-link active">Home</a></li>
+            <li><a href="#" class="nav-link">Collections</a></li>
+            <li><a href="#" class="nav-link">Custom Design</a></li>
+            <li><a href="#" class="nav-link">About Us</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero-banner">
+      <div class="hero-image-container">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0920/4121/6278/files/10006_893x480_d740aa4b-8098-4608-b9a7-19a52542b120.png?v=1734446775"
+          alt="Custom Furniture Collection"
+        />
+      </div>
+      <div class="hero-content container">
+        <h1 class="hero-title">Made to Order <span>Custom Furniture</span></h1>
+        <p class="hero-subtitle">
+          High-Quality, Custom Furniture Made in the USA
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">Shop Collections</a>
+          <a href="#" class="btn btn-secondary">Book Consultation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <main>
+      <!-- INTRO -->
+      <section class="intro container">
+        <div class="section-header">
+          <h2>Craftsmanship <span>You Can Trust</span></h2>
+          <p class="section-subheading">
+            Discover the perfect blend of style, comfort, and durability
+          </p>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="features-section">
+        <div class="container">
+          <div class="features">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="feature-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <h3>Made to Order, Built to Last</h3>
+              <p>
+                At cozyhome, we specialize in high-quality, made-to-order
+                furniture proudly crafted in the USA. Whether you're furnishing
+                a new home or refreshing a space, our durable and stylish pieces
+                are built to stand the test of time.
+              </p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="feature-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="3" y1="9" x2="21" y2="9"></line>
+                  <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+              </div>
+              <h3>Customizable Sofas & Sectionals</h3>
+              <p>
+                Design the perfect sofa or sectional for your space. With over
+                700 fabric and leather options—including luxurious performance
+                fabrics—you'll have endless ways to personalize your furniture.
+              </p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="feature-icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 20V10"></path>
+                  <path d="M12 20V4"></path>
+                  <path d="M6 20v-6"></path>
+                </svg>
+              </div>
+              <h3>Solid Wood Bedroom & Dining</h3>
+              <p>
+                Our solid wood collections bring timeless craftsmanship to any
+                space. Each piece is built with expert care to add warmth,
+                character, and beauty to your home.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="gallery-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Styles for <span>Every Home</span></h2>
+            <p class="section-subheading">
+              From modern to traditional, our pieces are tailored to match your
+              style and space
+            </p>
+          </div>
+          <div class="gallery-controls">
+            <button class="gallery-nav prev" id="gallery-prev">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="gallery-nav next" id="gallery-next">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+          <div class="gallery-container">
+            <div class="gallery" id="gallery-slider">
+              <div class="gallery-item">
+                <img
+                  src="https://www.cozyhomefurniture.com/cdn/shop/files/5a5a2ccc-7470-4fee-9aa3-8e95bb923fcd_1390x1392.jpg?v=1734733526"
+                  alt="Contemporary Living Room"
+                />
+                <div class="gallery-caption">
+                  <h4>Contemporary Living</h4>
+                  <p>Modern comfort for everyday life</p>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://www.cozyhomefurniture.com/cdn/shop/files/db06c61f-1a54-4426-b9fb-345f33f0712e_1390x1389.jpg?v=1742848806"
+                  alt="Dining Room Table"
+                />
+                <div class="gallery-caption">
+                  <h4>Elegant Dining</h4>
+                  <p>Gather in style with solid wood craftsmanship</p>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0920/4121/6278/files/Modus400x400.png?v=1737615985"
+                  alt="Modern Bedroom"
+                />
+                <div class="gallery-caption">
+                  <h4>Serene Bedrooms</h4>
+                  <p>Create your perfect sanctuary</p>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://www.cozyhomefurniture.com/cdn/shop/files/2e68b07c-3458-48f0-bcdc-e578c7426928_1390x1390.jpg?v=1736285763"
+                  alt="Custom Sectional"
+                />
+                <div class="gallery-caption">
+                  <h4>Custom Sectionals</h4>
+                  <p>Designed for your unique space</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIAL -->
+      <section class="testimonials">
+        <div class="container">
+          <div class="testimonial-slider" id="testimonial-slider">
+            <div class="testimonial-slide active">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                    ></path>
+                    <path
+                      d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                    ></path>
+                  </svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "We absolutely love our new sectional! The quality is
+                  outstanding, and the custom fabric is exactly what we wanted.
+                  The team at cozyhome made the entire process so easy."
+                </blockquote>
+                <div class="testimonial-author">
+                  <p class="author-name">Sarah T.</p>
+                  <p class="author-location">Dallas, TX</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                    ></path>
+                    <path
+                      d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                    ></path>
+                  </svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "The dining table we ordered is a masterpiece. The
+                  craftsmanship is exceptional, and it's become the centerpiece
+                  of our home. Worth every penny for this heirloom quality
+                  piece."
+                </blockquote>
+                <div class="testimonial-author">
+                  <p class="author-name">Michael R.</p>
+                  <p class="author-location">Austin, TX</p>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"
+                    ></path>
+                    <path
+                      d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"
+                    ></path>
+                  </svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                  "I was hesitant to buy furniture online, but the design
+                  consultation made all the difference. Our bedroom set is
+                  gorgeous and exactly what we envisioned."
+                </blockquote>
+                <div class="testimonial-author">
+                  <p class="author-name">Jennifer L.</p>
+                  <p class="author-location">Plano, TX</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <div class="cta-content">
+            <h2>Visit Our Showroom in Plano</h2>
+            <p>
+              Let us help you design and elevate any space in your home. Come
+              see and feel the quality of our furniture in person.
+            </p>
+            <div class="cta-buttons">
+              <a href="/pages/contact" class="btn btn-primary"
+                >Get Directions</a
+              >
+              <a href="#" class="btn btn-outline">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <div class="footer-logo">CōzyHome</div>
+            <p>
+              High-quality, custom furniture proudly made in the USA since 2005.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  ></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Shop</h4>
+            <ul class="footer-links">
+              <li><a href="#">Living Room</a></li>
+              <li><a href="#">Dining Room</a></li>
+              <li><a href="#">Bedroom</a></li>
+              <li><a href="#">Office</a></li>
+              <li><a href="#">Outdoor</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>About</h4>
+            <ul class="footer-links">
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Craftsmanship</a></li>
+              <li><a href="#">Sustainability</a></li>
+              <li><a href="#">Design Services</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact</h4>
+            <address>
+              <p>123 Furniture Lane</p>
+              <p>Plano, TX 75024</p>
+              <p><a href="tel:+12145551234">(214) 555-1234</a></p>
+              <p><a href="mailto:info@cozyhome.com">info@cozyhome.com</a></p>
+            </address>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 CōzyHome Furniture. All rights reserved.</p>
+          <ul class="footer-legal">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Accessibility</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navMenu = document.querySelector(".nav-menu");
+
+        if (mobileMenu) {
+          mobileMenu.addEventListener("click", function () {
+            mobileMenu.classList.toggle("active");
+            navMenu.classList.toggle("active");
+
+            // Toggle menu icon
+            const bars = mobileMenu.querySelectorAll(".bar");
+            if (mobileMenu.classList.contains("active")) {
+              bars[0].style.transform = "rotate(-45deg) translate(-5px, 6px)";
+              bars[1].style.opacity = "0";
+              bars[2].style.transform = "rotate(45deg) translate(-5px, -6px)";
+            } else {
+              bars[0].style.transform = "none";
+              bars[1].style.opacity = "1";
+              bars[2].style.transform = "none";
+            }
+          });
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+            navbar.style.padding = "0.75rem 0";
+            navbar.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.08)";
+          } else {
+            navbar.style.padding = "1rem 0";
+            navbar.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+          }
+        });
+
+        // Gallery Slider
+        const gallerySlider = document.getElementById("gallery-slider");
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        const prevBtn = document.getElementById("gallery-prev");
+        const nextBtn = document.getElementById("gallery-next");
+
+        if (gallerySlider && galleryItems.length > 0) {
+          let currentIndex = 0;
+          const itemWidth = galleryItems[0].offsetWidth + 32; // Including margin
+          const maxIndex = Math.max(
+            0,
+            galleryItems.length -
+              Math.floor(gallerySlider.offsetWidth / itemWidth)
+          );
+
+          function updateGallery() {
+            gallerySlider.style.transform = `translateX(-${
+              currentIndex * itemWidth
+            }px)`;
+          }
+
+          if (prevBtn) {
+            prevBtn.addEventListener("click", function () {
+              currentIndex = Math.max(0, currentIndex - 1);
+              updateGallery();
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener("click", function () {
+              currentIndex = Math.min(maxIndex, currentIndex + 1);
+              updateGallery();
+            });
+          }
+
+          // Responsive gallery
+          window.addEventListener("resize", function () {
+            const newMaxIndex = Math.max(
+              0,
+              galleryItems.length -
+                Math.floor(gallerySlider.offsetWidth / itemWidth)
+            );
+            currentIndex = Math.min(currentIndex, newMaxIndex);
+            updateGallery();
+          });
+        }
+
+        // Testimonial Slider
+        const testimonialSlides =
+          document.querySelectorAll(".testimonial-slide");
+        const dots = document.querySelectorAll(".dot");
+
+        if (testimonialSlides.length > 0 && dots.length > 0) {
+          let currentTestimonial = 0;
+          let testimonialInterval;
+
+          function showTestimonial(index) {
+            // Hide all slides
+            testimonialSlides.forEach((slide) => {
+              slide.classList.remove("active");
+            });
+
+            // Deactivate all dots
+            dots.forEach((dot) => {
+              dot.classList.remove("active");
+            });
+
+            // Show the selected slide and activate the corresponding dot
+            testimonialSlides[index].classList.add("active");
+            dots[index].classList.add("active");
+
+            currentTestimonial = index;
+          }
+
+          // Initialize testimonial slider
+          function startTestimonialSlider() {
+            testimonialInterval = setInterval(function () {
+              const nextIndex =
+                (currentTestimonial + 1) % testimonialSlides.length;
+              showTestimonial(nextIndex);
+            }, 5000);
+          }
+
+          // Add click event to dots
+          dots.forEach((dot, index) => {
+            dot.addEventListener("click", function () {
+              clearInterval(testimonialInterval);
+              showTestimonial(index);
+              startTestimonialSlider();
+            });
+          });
+
+          // Start the slider
+          startTestimonialSlider();
+        }
+
+        // Animate on scroll
+        const animatedElements = document.querySelectorAll("[data-aos]");
+
+        function checkScroll() {
+          const triggerBottom = window.innerHeight * 0.8;
+
+          animatedElements.forEach((element) => {
+            const elementTop = element.getBoundingClientRect().top;
+
+            if (elementTop < triggerBottom) {
+              const delay = element.getAttribute("data-aos-delay") || 0;
+              setTimeout(() => {
+                element.style.opacity = "1";
+                element.style.transform = "translateY(0)";
+              }, delay);
+            }
+          });
+        }
+
+        // Initialize AOS elements
+        animatedElements.forEach((element) => {
+          element.style.opacity = "0";
+          element.style.transform = "translateY(30px)";
+          element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        });
+
+        // Check for elements in view on load and scroll
+        window.addEventListener("load", checkScroll);
+        window.addEventListener("scroll", checkScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+
+              // Close mobile menu if open
+              if (navMenu.classList.contains("active")) {
+                mobileMenu.click();
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
