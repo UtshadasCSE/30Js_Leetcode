@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Comparison Table</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #162938;
+        --accent-color: #e98837;
+        --light-accent: rgba(233, 136, 55, 0.1);
+        --white: #ffffff;
+        --light-gray: #f5f7fa;
+        --medium-gray: #e1e5eb;
+        --dark-gray: #6c757d;
+        --box-shadow: 0 10px 30px rgba(22, 41, 56, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .cp-comparison-section {
+        padding: 80px 0;
+        background-color: var(--white);
+        color: var(--primary-color);
+        line-height: 1.6;
+      }
+
+      .cp-container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .cp-section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .cp-section-title span {
+        color: var(--accent-color);
+      }
+
+      .cp-section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: var(--dark-gray);
+        margin-bottom: 50px;
+      }
+
+      .cp-comparison-table-wrapper {
+        overflow-x: auto;
+        box-shadow: var(--box-shadow);
+        border-radius: 12px;
+        margin-bottom: 40px;
+      }
+
+      .cp-comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .cp-comparison-table thead th {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 20px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .cp-comparison-table th.cp-us-column {
+        background-color: var(--accent-color);
+      }
+
+      .cp-comparison-table th.cp-us-column i {
+        margin-left: 8px;
+      }
+
+      .cp-comparison-table tbody tr {
+        transition: var(--transition);
+      }
+
+      .cp-comparison-table tbody tr:nth-child(odd) {
+        background-color: var(--white);
+      }
+
+      .cp-comparison-table tbody tr:nth-child(even) {
+        background-color: var(--light-gray);
+      }
+
+      .cp-comparison-table tbody tr:hover {
+        background-color: var(--light-accent);
+        transform: translateY(-2px);
+      }
+
+      .cp-comparison-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--medium-gray);
+      }
+
+      .cp-feature-name {
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .cp-others-value {
+        color: var(--dark-gray);
+      }
+
+      .cp-us-value {
+        font-weight: 500;
+        position: relative;
+        padding-left: 10px;
+      }
+
+      .cp-us-value::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 70%;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+      }
+
+      .cp-cta-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .cp-cta-button {
+        background-color: var(--accent-color);
+        color: var(--white);
+        border: none;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(233, 136, 55, 0.3);
+      }
+
+      .cp-cta-button:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(22, 41, 56, 0.3);
+      }
+
+      @media (max-width: 992px) {
+        .cp-container {
+          padding: 0 15px;
+        }
+
+        .cp-section-title {
+          font-size: 32px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cp-section-title {
+          font-size: 28px;
+        }
+
+        .cp-section-subtitle {
+          font-size: 16px;
+          margin-bottom: 30px;
+        }
+
+        .cp-comparison-table thead th {
+          padding: 15px;
+          font-size: 16px;
+        }
+
+        .cp-comparison-table td {
+          padding: 15px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .cp-comparison-section {
+          padding: 50px 0;
+        }
+
+        .cp-section-title {
+          font-size: 24px;
+        }
+
+        .cp-section-subtitle {
+          font-size: 14px;
+          margin-bottom: 25px;
+        }
+
+        .cp-comparison-table thead th {
+          padding: 12px 10px;
+          font-size: 14px;
+        }
+
+        .cp-comparison-table td {
+          padding: 12px 10px;
+          font-size: 13px;
+        }
+
+        .cp-cta-button {
+          padding: 12px 25px;
+          font-size: 14px;
+        }
+      }
+
+      .cp-feature-row {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .cp-feature-row.animated {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cp-comparison-section">
+      <div class="cp-container">
+        <h2 class="cp-section-title">Why Choose <span>Us?</span></h2>
+        <p class="cp-section-subtitle">
+          See how our services compare to other agencies
+        </p>
+
+        <div class="cp-comparison-table-wrapper">
+          <table class="cp-comparison-table" id="comparisonTable">
+            <thead>
+              <tr>
+                <th class="cp-feature-column">Feature / Approach</th>
+                <th class="cp-others-column">Other Agencies</th>
+                <th class="cp-us-column">
+                  Us <i class="fas fa-check-circle"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Strategy</td>
+                <td class="cp-others-value">Generic, One-size-fits-all</td>
+                <td class="cp-us-value">
+                  Custom Strategies tailored to your goals
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Reporting</td>
+                <td class="cp-others-value">
+                  Monthly reports with limited insights
+                </td>
+                <td class="cp-us-value">
+                  Real-time dashboard + transparent reporting
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Optimization</td>
+                <td class="cp-others-value">
+                  Set-and-forget once ads are live
+                </td>
+                <td class="cp-us-value">
+                  Daily performance checks & iterative testing
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Creative Direction</td>
+                <td class="cp-others-value">Stock templates, low engagement</td>
+                <td class="cp-us-value">
+                  High-converting, platform-native creatives
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Platform Expertise</td>
+                <td class="cp-others-value">
+                  Basic understanding across platforms
+                </td>
+                <td class="cp-us-value">
+                  Deep expertise in Meta (FB/IG), TikTok, Google
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Ad Spend Efficiency</td>
+                <td class="cp-others-value">High spend, low returns</td>
+                <td class="cp-us-value">
+                  Maximize ROI with data-driven scaling
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Client Collaboration</td>
+                <td class="cp-others-value">
+                  Hard to reach, slow response times
+                </td>
+                <td class="cp-us-value">
+                  Direct access, fast turnaround, clear comms
+                </td>
+              </tr>
+              <tr class="cp-feature-row">
+                <td class="cp-feature-name">Conversion Focus</td>
+                <td class="cp-others-value">
+                  Impressions & clicks as vanity metrics
+                </td>
+                <td class="cp-us-value">
+                  Full-funnel approach focused on conversions
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cp-cta-container">
+          <button class="cp-cta-button">Schedule a Consultation</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tableRows = document.querySelectorAll(".cp-feature-row");
+
+        tableRows.forEach((row, index) => {
+          setTimeout(() => {
+            row.classList.add("animated");
+          }, index * 100);
+        });
+
+        tableRows.forEach((row) => {
+          row.addEventListener("mouseenter", () => {
+            const usValue = row.querySelector(".cp-us-value");
+            usValue.style.transition = "transform 0.3s ease";
+            usValue.style.transform = "scale(1.05)";
+            usValue.style.color = "#e98837";
+          });
+
+          row.addEventListener("mouseleave", () => {
+            const usValue = row.querySelector(".cp-us-value");
+            usValue.style.transform = "scale(1)";
+            usValue.style.color = "";
+          });
+        });
+
+        const ctaButton = document.querySelector(".cp-cta-button");
+        ctaButton.addEventListener("click", () => {
+          alert(
+            "Thank you for your interest! Our team will contact you shortly to schedule a consultation."
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

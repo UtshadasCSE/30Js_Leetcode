@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Comparison Table</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      :root {
+        --primary-color: #162938;
+        --accent-color: #e98837;
+        --light-accent: rgba(233, 136, 55, 0.1);
+        --white: #ffffff;
+        --light-gray: #f5f7fa;
+        --medium-gray: #e1e5eb;
+        --dark-gray: #6c757d;
+        --box-shadow: 0 10px 30px rgba(22, 41, 56, 0.1);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light-gray);
+        color: var(--primary-color);
+        line-height: 1.6;
+      }
+
+      .comparison-section {
+        padding: 80px 0;
+        background-color: var(--white);
+      }
+
+      .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+
+      .section-title span {
+        color: var(--accent-color);
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 18px;
+        color: var(--dark-gray);
+        margin-bottom: 50px;
+      }
+
+      .comparison-table-wrapper {
+        overflow-x: auto;
+        box-shadow: var(--box-shadow);
+        border-radius: 12px;
+        margin-bottom: 40px;
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .comparison-table thead th {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 20px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .comparison-table th.us-column {
+        background-color: var(--accent-color);
+      }
+
+      .comparison-table th.us-column i {
+        margin-left: 8px;
+      }
+
+      .comparison-table tbody tr {
+        transition: var(--transition);
+      }
+
+      .comparison-table tbody tr:nth-child(odd) {
+        background-color: var(--white);
+      }
+
+      .comparison-table tbody tr:nth-child(even) {
+        background-color: var(--light-gray);
+      }
+
+      .comparison-table tbody tr:hover {
+        background-color: var(--light-accent);
+        transform: translateY(-2px);
+      }
+
+      .comparison-table td {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--medium-gray);
+      }
+
+      .feature-name {
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      .others-value {
+        color: var(--dark-gray);
+      }
+
+      .us-value {
+        font-weight: 500;
+        position: relative;
+        padding-left: 10px;
+      }
+
+      .us-value::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 70%;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+      }
+
+      .cta-container {
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .cta-button {
+        background-color: var(--accent-color);
+        color: var(--white);
+        border: none;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(233, 136, 55, 0.3);
+      }
+
+      .cta-button:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(22, 41, 56, 0.3);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 28px;
+        }
+
+        .section-subtitle {
+          font-size: 16px;
+          margin-bottom: 30px;
+        }
+
+        .comparison-table thead th {
+          padding: 15px;
+          font-size: 16px;
+        }
+
+        .comparison-table td {
+          padding: 15px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="comparison-section">
+      <div class="container">
+        <h2 class="section-title">Why Choose <span>Us?</span></h2>
+        <p class="section-subtitle">
+          See how our services compare to other agencies
+        </p>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table" id="comparisonTable">
+            <thead>
+              <tr>
+                <th class="feature-column">Feature / Approach</th>
+                <th class="others-column">Other Agencies</th>
+                <th class="us-column">
+                  Us <i class="fas fa-check-circle"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="feature-row">
+                <td class="feature-name">Strategy</td>
+                <td class="others-value">Generic, One-size-fits-all</td>
+                <td class="us-value">
+                  Custom Strategies tailored to your goals
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Reporting</td>
+                <td class="others-value">
+                  Monthly reports with limited insights
+                </td>
+                <td class="us-value">
+                  Real-time dashboard + transparent reporting
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Optimization</td>
+                <td class="others-value">Set-and-forget once ads are live</td>
+                <td class="us-value">
+                  Daily performance checks & iterative testing
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Creative Direction</td>
+                <td class="others-value">Stock templates, low engagement</td>
+                <td class="us-value">
+                  High-converting, platform-native creatives
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Platform Expertise</td>
+                <td class="others-value">
+                  Basic understanding across platforms
+                </td>
+                <td class="us-value">
+                  Deeps expertise in Meta (FB/IG), TikTok, Google
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Ad Spend Efficiency</td>
+                <td class="others-value">High spend, low returns</td>
+                <td class="us-value">Maximize ROI with data-driven scaling</td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Client Collaboration</td>
+                <td class="others-value">Hard to reach, slow response times</td>
+                <td class="us-value">
+                  Direct access, fast turnaround, clear comms
+                </td>
+              </tr>
+              <tr class="feature-row">
+                <td class="feature-name">Conversion Focus</td>
+                <td class="others-value">
+                  Impressions & clicks as vanity metrics
+                </td>
+                <td class="us-value">
+                  Full-funnel approach focused on conversions
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cta-container">
+          <button class="cta-button">Schedule a Consultation</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation to table rows
+        const tableRows = document.querySelectorAll(".feature-row");
+
+        // Animate rows on page load
+        tableRows.forEach((row, index) => {
+          setTimeout(() => {
+            row.style.opacity = "0";
+            row.style.transform = "translateY(20px)";
+            row.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+            setTimeout(() => {
+              row.style.opacity = "1";
+              row.style.transform = "translateY(0)";
+            }, 100);
+          }, index * 100);
+        });
+
+        // Add highlight effect when hovering over a row
+        tableRows.forEach((row) => {
+          row.addEventListener("mouseenter", () => {
+            // Add pulse animation to the "Us" value in the hovered row
+            const usValue = row.querySelector(".us-value");
+            usValue.style.transition = "transform 0.3s ease";
+            usValue.style.transform = "scale(1.05)";
+            usValue.style.color = "#e98837";
+          });
+
+          row.addEventListener("mouseleave", () => {
+            // Remove pulse animation when mouse leaves
+            const usValue = row.querySelector(".us-value");
+            usValue.style.transform = "scale(1)";
+            usValue.style.color = "";
+          });
+        });
+
+        // Add click event to CTA button
+        const ctaButton = document.querySelector(".cta-button");
+        ctaButton.addEventListener("click", () => {
+          // You can replace this with your actual booking logic
+          alert(
+            "Thank you for your interest! Our team will contact you shortly to schedule a consultation."
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
