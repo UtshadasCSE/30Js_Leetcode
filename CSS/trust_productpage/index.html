@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warranty Section</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .custom-mody {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .custom-warranty-section {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .custom-warranty-container {
+        width: 100%;
+        padding: 0px 20px;
+      }
+
+      .custom-warranty-header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .custom-warranty-shield-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .custom-warranty-shield {
+        width: 50px;
+        height: 60px;
+        border: 2px solid #000;
+        border-radius: 0 0 25px 25px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+      }
+
+      .custom-warranty-shield:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 20px;
+        border: 2px solid #000;
+        border-bottom: none;
+        border-radius: 15px 15px 0 0;
+      }
+
+      .custom-warranty-check {
+        font-size: 24px;
+        color: #000;
+      }
+
+      .custom-warranty-text {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 1.2;
+        text-align: center;
+      }
+
+      .custom-warranty-badge {
+        width: 80px;
+        height: 80px;
+      }
+
+      .custom-warranty-badge-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .custom-warranty-description {
+        text-align: center;
+        margin-bottom: 30px;
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      .custom-warranty-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .custom-warranty-feature {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .custom-warranty-feature-icon {
+        font-size: 24px;
+        color: #333;
+        width: 30px;
+        text-align: center;
+      }
+
+      .custom-warranty-feature-text {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      @media (max-width: 480px) {
+        .custom-warranty-features {
+          grid-template-columns: 1fr;
+        }
+
+        .custom-warranty-header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .custom-warranty-description {
+          font-size: 13px;
+        }
+        .custom-warranty-header {
+          display: flex !important;
+          flex-direction: row;
+          align-items: center;
+        }
+        .custom-warranty-container {
+          padding: 0px 0px !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="custom-mody">
+    <section class="custom-warranty-section">
+      <div class="custom-warranty-container">
+        <!-- Header -->
+        <div class="custom-warranty-header">
+          <!-- image 1 -->
+          <div class="custom-warranty-badge">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0755/3977/5713/files/free-shipping_2772642d-1793-49e5-9dce-4816bf01437f.png?v=1746781546"
+              alt="Badge"
+              class="custom-warranty-badge-img"
+            />
+          </div>
+          <!-- image 2 -->
+          <div class="custom-warranty-badge">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0755/3977/5713/files/return.png?v=1746781521"
+              alt="Badge"
+              class="custom-warranty-badge-img"
+            />
+          </div>
+          <!-- image 3 -->
+          <div class="custom-warranty-badge">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0755/3977/5713/files/shield.png?v=1746781521"
+              alt="Badge"
+              class="custom-warranty-badge-img"
+            />
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p class="custom-warranty-description">
+          Our unwavering confidence in the durability and performance of what we
+          offer translates into a satisfied and happy customer. If you ever
+          encounter any problems, we promise an absolute commitment to resolving
+          it.
+        </p>
+
+        <!-- Features -->
+        <div class="custom-warranty-features">
+          <div class="custom-warranty-feature">
+            <i class="fas fa-box custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text">Free Shipping</span>
+          </div>
+          <div class="custom-warranty-feature">
+            <i class="fas fa-shield-alt custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text"
+              >Officially Licensed</span
+            >
+          </div>
+          <div class="custom-warranty-feature">
+            <i class="fas fa-undo custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text">Easy Returns</span>
+          </div>
+          <div class="custom-warranty-feature">
+            <i class="fas fa-medal custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text"
+              >Craftsmanship Quality</span
+            >
+          </div>
+          <div class="custom-warranty-feature">
+            <i class="fas fa-flag-usa custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text">Made in the USA</span>
+          </div>
+          <div class="custom-warranty-feature">
+            <i class="far fa-star custom-warranty-feature-icon"></i>
+            <span class="custom-warranty-feature-text">Ready to Hang</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // This script adds animation effects to the warranty features
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all feature elements
+        const features = document.querySelectorAll(".warranty-feature");
+
+        // Add fade-in animation when page loads
+        features.forEach((feature, index) => {
+          setTimeout(() => {
+            feature.style.opacity = "0";
+            feature.style.transform = "translateY(20px)";
+            feature.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+
+            setTimeout(() => {
+              feature.style.opacity = "1";
+              feature.style.transform = "translateY(0)";
+            }, 100 * index);
+          }, 500);
+        });
+
+        // Add hover effect for features
+        features.forEach((feature) => {
+          feature.addEventListener("mouseenter", () => {
+            feature.style.transform = "scale(1.05)";
+          });
+
+          feature.addEventListener("mouseleave", () => {
+            feature.style.transform = "scale(1)";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
