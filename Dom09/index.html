@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll to Top</title>
+    <style>
+      body {
+        height: 2000px; /* for scroll */
+        font-family: Arial, sans-serif;
+      }
+
+      /* Scroll to top button */
+      #scrollTopBtn {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 40px;
+        height: 40px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease;
+      }
+
+      #scrollTopBtn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="scrollTopBtn">&#8679;</button>
+    <!-- up arrow -->
+
+    <script>
+      const scrollBtn = document.getElementById("scrollTopBtn");
+
+      // Show button when scroll is more than 100px
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          scrollBtn.style.display = "flex";
+        } else {
+          scrollBtn.style.display = "none";
+        }
+      });
+
+      // Scroll to top smoothly
+      scrollBtn.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
