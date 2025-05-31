@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        height: 100dvh;
+        background-color: rgb(54, 60, 58);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        width: max-content;
+        padding: 20px 20px;
+        background-color: aqua;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.9rem;
+      }
+      .card h2 {
+        border-bottom: 1px solid black;
+      }
+      .card .card-input {
+        display: flex;
+        gap: 1rem;
+      }
+      .card-btn {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .card-btn button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: rgb(54, 60, 58);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .card-btn button:hover {
+        background-color: rgb(0, 0, 0);
+        transition: all 0.6s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-input">
+          <h2 id="input-1">0</h2>
+          <h2 id="input-2">0</h2>
+        </div>
+        <div class="card-btn">
+          <button onclick="add()">Add</button>
+          <button onclick="sub()">Subtrack</button>
+          <button onclick="multi()">Multiply</button>
+          <button onclick="divided()">Divided</button>
+        </div>
+        <div class="answer">
+          <p>Sum is: <span>0</span></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      const input1 = document.querySelector("#input-1");
+      const input2 = document.querySelector("#input-2");
+
+      const number1 = 10;
+      const number2 = 20;
+
+      input1.textContent = number1;
+      input2.textContent = number2;
+
+      function add() {
+        const sum = number1 + number2;
+        document.querySelector(".answer span").textContent = sum;
+      }
+      function sub() {
+        const sub = number1 - number2;
+        document.querySelector(".answer span").textContent = sub;
+      }
+      function multi() {
+        const multi = number1 * number2;
+        document.querySelector(".answer span").textContent = multi;
+      }
+      function divided() {
+        const divided = number1 / number2;
+        document.querySelector(".answer span").textContent = divided;
+      }
+    </script>
+  </body>
+</html>

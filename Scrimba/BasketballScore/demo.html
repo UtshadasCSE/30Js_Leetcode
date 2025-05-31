@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .product-card {
+        width: 300px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-image {
+        width: 100%;
+        height: 60%;
+      }
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .product-desc {
+        padding: 20px;
+      }
+      .product-desc h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .product-desc p {
+        font-size: 16px;
+        color: #333;
+      }
+      .product-desc button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-card">
+      <div class="product-image">
+        <img src="assets/1.png" alt="" />
+      </div>
+      <div class="product-desc">
+        <h2>Air arogoos nike signature</h2>
+        <p>$200.00</p>
+        <button onclick="purchase()">Buy Now</button>
+      </div>
+      <div class="error-tag">
+        <p class="error-text" id="error-text"></p>
+      </div>
+    </div>
+    <script>
+      const errorText = document.getElementById("error-text");
+      function purchase() {
+        errorText.textContent = "Error: This product is out of stock.";
+        errorText.style.color = "red";
+        errorText.style.paddingLeft = "20px";
+      }
+    </script>
+  </body>
+</html>
