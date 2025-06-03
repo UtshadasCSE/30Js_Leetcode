@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Now Button</title>
+    <style>
+      .custom-btn {
+        padding: 12px 30px;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 14px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background 0.3s, color 0.3s;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 6px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+      }
+
+      .custom-btn:hover {
+        background: rgba(255, 255, 255, 0.8);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="custom-btn">SHOP NOW</button>
+
+    <script>
+      document.querySelector(".custom-btn").addEventListener("click", () => {
+        alert("Redirecting to shop...");
+        // window.location.href = '/shop'; // Uncomment to enable redirection
+      });
+    </script>
+  </body>
+</html>
