@@ -1,0 +1,23 @@
+p::before {
+  content: "This is a paragraph: ";
+  color: blue;
+}
+p::first-letter {
+  font-size: 2em;
+  color: green;
+}
+p::first-line {
+  font-weight: bold;
+}
+p::after {
+  content: " - End of paragraph";
+  color: red;
+}
+p {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  margin: 20px;
+}
+::selection {
+  background: yellow;
+}

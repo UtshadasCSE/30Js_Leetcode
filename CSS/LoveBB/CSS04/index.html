@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Opacity Example</title>
+    <style>
+      .opaque {
+        opacity: 1;
+      }
+      .semi-transparent {
+        opacity: 0.5;
+      }
+
+      .transparent {
+        opacity: 0.5;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="opaque">Fully Opaque</div>
+    <div class="semi-transparent">50% Transparent</div>
+    <div class="transparent">90% Transparent</div>
+  </body>
+</html>
