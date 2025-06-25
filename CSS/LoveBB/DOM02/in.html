@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      let container = document.querySelector(".container");
+      let newEl = document.createElement("p");
+      newEl.textContent = "This is a new paragraph element.";
+      container.appendChild(newEl);
+    </script>
+  </body>
+</html>
