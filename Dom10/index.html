@@ -3,9 +3,197 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Person Info Modal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100dvh;
+      }
+
+      .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 320px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+      }
+
+      li {
+        background: #f2f2f2;
+        margin: 5px 0;
+        padding: 8px;
+        border-radius: 5px;
+      }
+
+      .message {
+        margin-top: 1.5rem;
+        font-weight: bold;
+        color: #5c258d;
+      }
+
+      button {
+        margin-top: 1rem;
+        padding: 10px 16px;
+        border: none;
+        background-color: #5c258d;
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #3b0a58;
+      }
+
+      /* Modern Modal Styles */
+      .back-drop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(6px);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease forwards;
+      }
+
+      .modal-container {
+        background-color: white;
+        padding: 4rem;
+        border-radius: 10px;
+        width: 70%;
+        max-width: 400px;
+        text-align: center;
+        transform: scale(0.8);
+        opacity: 0;
+        animation: scaleIn 0.3s ease forwards;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .modal-container h3 {
+        margin-bottom: 1rem;
+        color: #5c258d;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: transparent;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #333;
+      }
+
+      @keyframes fadeIn {
+        from {
+          background-color: rgba(0, 0, 0, 0);
+        }
+        to {
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      @keyframes scaleIn {
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
-    <script src="index.js"></script>
+    <div class="back-drop" id="backDrop">
+      <div class="modal-container" id="modalContainer">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <h3 id="modalText"></h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 id="name">Name:</h2>
+      <p id="age">Age:</p>
+      <ul id="hobby-list"></ul>
+      <p class="message" id="vote-status"></p>
+      <p class="message" id="gaming-status"></p>
+      <button onclick="person.greet()">Greet</button>
+    </div>
+
+    <script>
+      const person = {
+        name: "John",
+        age: 30,
+        hobbies: ["reading", "gaming", "hiking"],
+        greet: function () {
+          const modalText = document.getElementById("modalText");
+          const backDrop = document.getElementById("backDrop");
+
+          modalText.innerText = `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+          backDrop.style.display = "flex";
+        },
+        checkGamingHobby: function () {
+          for (let i = 0; i < this.hobbies.length; i++) {
+            if (this.hobbies[i] === "gaming") {
+              return "I also love gaming.";
+            }
+          }
+          return "Gaming is not one of my hobbies.";
+        },
+      };
+
+      // DOM setup
+      document.getElementById("name").innerText = `Name: ${person.name}`;
+      document.getElementById("age").innerText = `Age: ${person.age}`;
+      document.getElementById("vote-status").innerText =
+        person.age >= 18 ? "Eligible to vote." : "Not eligible to vote.";
+      document.getElementById("gaming-status").innerText =
+        person.checkGamingHobby();
+
+      const list = document.getElementById("hobby-list");
+      person.hobbies.forEach((hobby) => {
+        const li = document.createElement("li");
+        li.innerText = hobby;
+        list.appendChild(li);
+      });
+
+      // Close modal
+      document.getElementById("closeBtn").addEventListener("click", () => {
+        document.getElementById("backDrop").style.display = "none";
+      });
+
+      document.getElementById("backDrop").addEventListener("click", (e) => {
+        if (e.target.id === "backDrop") {
+          e.target.style.display = "none";
+        }
+      });
+    </script>
   </body>
 </html>
