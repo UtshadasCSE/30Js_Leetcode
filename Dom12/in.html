@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .colors {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .colors button {
+        padding: 20px;
+        font-size: 1.2em;
+        border: none;
+        cursor: pointer;
+        color: white;
+        margin: 10px;
+        transition: background-color 0.3s ease;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="colors">
+      <button data-color="#ff6b6b">Red</button>
+      <button data-color="#1dd1a1">Green</button>
+      <button data-color="#54a0ff">Blue</button>
+      <button data-color="#000000">Black</button>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll(".colors button");
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const color = button.getAttribute("data-color");
+          document.body.style.backgroundColor = color;
+        });
+      });
+    </script>
+  </body>
+</html>

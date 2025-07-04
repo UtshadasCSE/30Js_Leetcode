@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 20px;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .product-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        padding: 16px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .product-card h3 {
+        margin: 10px 0;
+        font-size: 1.2rem;
+      }
+
+      .product-card p {
+        font-weight: bold;
+        color: #27ae60;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">🛍️Our Products</h1>
+    <div class="product-list" id="productList"></div>
+
+    <script>
+      const products = [
+        {
+          title: "Wireless Headphones",
+          price: "$59.99",
+          image:
+            "https://tse4.mm.bing.net/th/id/OIP.3LNVvXVx3isBUz3QOe8nsQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        },
+        {
+          title: "Smart Watch",
+          price: "$129.00",
+          image:
+            "https://tse4.mm.bing.net/th/id/OIP.3LNVvXVx3isBUz3QOe8nsQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        },
+        {
+          title: "Shoes",
+          price: "$89.50",
+          image:
+            "https://tse4.mm.bing.net/th/id/OIP.3LNVvXVx3isBUz3QOe8nsQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+        },
+        {
+          title: "Backpack",
+          price: "$44.99",
+          image:
+            "https://tse2.mm.bing.net/th/id/OIP.tXQaubbYRZfiOBVdmQLugAHaH3?rs=1&pid=ImgDetMain&o=7&rm=3",
+        },
+      ];
+
+      const productList = document.getElementById("productList");
+      products.forEach((product) => {
+        const card = document.createElement("div");
+        card.classList.add("product-card");
+        card.innerHTML = `
+    <img src="${product.image}" alt="${product.title}" />
+    <h3>${product.title}</h3>
+    <p>${product.price}</p>
+  `;
+        productList.appendChild(card);
+      });
+    </script>
+  </body>
+</html>

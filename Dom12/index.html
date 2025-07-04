@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="hello">
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam,
+        distinctio earum? Repudiandae.
+      </p>
+      <h2>Firts</h2>
+    </div>
+    <p class="hello">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit in
+      reiciendis sunt accusamus magni est, rem et tempora cum!
+      <span>Second</span>
+    </p>
+    <script>
+      const hello = document.querySelectorAll(".hello");
+      hello.forEach((el) => {
+        el.style.color = "red";
+        el.style.backgroundColor = "black";
+      });
+    </script>
+  </body>
+</html>

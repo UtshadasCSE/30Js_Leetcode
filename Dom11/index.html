@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        cursor: pointer;
+        padding: 5px;
+      }
+      li.active {
+        background-color: yellow;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li>Banana</li>
+      <li>Mango</li>
+      <li>Apple</li>
+      <li>Orange</li>
+    </ul>
+    <script>
+      const listItems = document.querySelectorAll("#fruit-list li");
+      listItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          item.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

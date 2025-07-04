@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      .parent-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 20px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        width: 300px;
+      }
+      .card img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="parent-container">
+        <div class="card">
+          <img src="assets/profile.jpg" alt="" />
+          <h2>Jhon Doe</h2>
+          <p>Frontend Developer</p>
+          <strong>Brain Station23</strong>
+        </div>
+        <div class="card">
+          <img src="assets/profile.jpg" alt="" />
+          <h2>Jhon Doe</h2>
+          <p>Frontend Developer</p>
+          <strong>Brain Station23</strong>
+        </div>
+      </div>
+    </div>
+    <script>
+      const usersProfile = [
+        {
+          name: "Jhon Doe",
+          role: "Frontend Developer",
+          company: "Brain Station23",
+          image: "assets/profile.jpg",
+        },
+        {
+          name: "Jane Smith",
+          role: "Backend Developer",
+          company: "Tech Solutions",
+          image: "assets/profile.jpg",
+        },
+        {
+          name: "Alice Johnson",
+          role: "UI/UX Designer",
+          company: "Creative Minds",
+          image: "assets/profile.jpg",
+        },
+      ];
+      const parentContainer = document.querySelector(".parent-container");
+      usersProfile.forEach((user) => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const img = document.createElement("img");
+        img.src = user.image;
+        img.alt = user.name;
+
+        const name = document.createElement("h2");
+        name.textContent = user.name;
+
+        const role = document.createElement("p");
+        role.textContent = user.role;
+
+        const company = document.createElement("strong");
+        company.textContent = user.company;
+
+        card.appendChild(img);
+        card.appendChild(name);
+        card.appendChild(role);
+        card.appendChild(company);
+
+        parentContainer.appendChild(card);
+      });
+    </script>
+  </body>
+</html>
