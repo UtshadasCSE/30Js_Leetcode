@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="inputField" placeholder="Type your name" />
+    <button>Save</button>
+    <div class="display"></div>
+    <script>
+      const inputField = document.getElementById("inputField");
+      const button = document.querySelector("button");
+      const displayDiv = document.querySelector(".display");
+      localStorage.getItem("name") &&
+        (displayDiv.textContent = `Hello, ${localStorage.getItem("name")}!`);
+      button.addEventListener("click", () => {
+        const name = inputField.value;
+        if (name) {
+          displayDiv.textContent = `Hello, ${name}!`;
+          inputField.value = ""; // Clear the input field
+        } else {
+          displayDiv.textContent = "Please enter your name.";
+        }
+        localStorage.setItem("name", name);
+      });
+    </script>
+  </body>
+</html>
